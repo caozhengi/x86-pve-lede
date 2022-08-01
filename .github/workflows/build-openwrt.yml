@@ -31,7 +31,7 @@ jobs:
 
       - name: Clone source code
         run: |
-          git clone git@github.com:coolsnowwolf/lede.git
+          git clone https://github.com/coolsnowwolf/lede.git
           cd lede
 
       - name: Space cleanup
