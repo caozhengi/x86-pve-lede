@@ -6,7 +6,7 @@
 # Copyright (C) 2020 KFERMercer
 #
 
-name: Build-OpenWrt
+name: Build OpenWrt
 
 on:
   repository_dispatch:
