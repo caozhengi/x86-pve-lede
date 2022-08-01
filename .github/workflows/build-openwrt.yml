@@ -49,7 +49,6 @@ jobs:
 
       - name: Update feeds
         run: |
-          sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
           sed -i '$a src-git small8 https://github.com/kenzok8/small-package' feeds.conf.default
           ./scripts/feeds update -a
           ./scripts/feeds install -a
