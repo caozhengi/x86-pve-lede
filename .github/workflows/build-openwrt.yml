@@ -32,7 +32,7 @@ jobs:
       - name: Clone source code
         run: |
           git clone https://github.com/coolsnowwolf/lede.git
-          cd lede
+          mv lede/* ./.
 
       - name: Space cleanup
         env:
@@ -56,7 +56,6 @@ jobs:
 
       - name: Generate configuration file
         run: |
-          mv ../.config lede/.config
           make defconfig
 
       - name: Make download
