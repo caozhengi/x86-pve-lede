@@ -30,7 +30,6 @@ jobs:
         uses: actions/checkout@main
 
       - name: Clone source code
-        working-directory: /workdir
         run: |
           git clone git@github.com:coolsnowwolf/lede.git
           cd lede
