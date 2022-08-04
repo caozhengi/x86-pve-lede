@@ -26,8 +26,8 @@ jobs:
 
       - name: Clone source code
         run: |
-          git clone https://github.com/coolsnowwolf/lede.git
-          mv lede/* ./.
+          git clone https://github.com/coolsnowwolf/lede.git openwrt
+          mv .config  ./openwrt/
 
       - name: Space cleanup
         env:
@@ -44,6 +44,7 @@ jobs:
 
       - name: Update feeds
         run: |
+          cd openwrt
           sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
           sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
           ./scripts/feeds update -a
@@ -51,18 +52,18 @@ jobs:
 
       - name: Generate configuration file
         run: |
-          echo "======Current Config======"
-          cat .config
-          echo "=========================="
-          make defconfig
+          cat openwrt/.config
 
       - name: Make download
         run: |
+          cd openwrt
+          make defconfig
           make download -j8
           find dl -size -1024c -exec rm -f {} \;
 
       - name: Compile firmware
         run: |
+          cd openwrt
           make -j$(nproc) || make -j1 V=s
           echo "======================="
           echo "Space usage:"
@@ -75,6 +76,7 @@ jobs:
 
       - name: Prepare artifact
         run: |
+          cd openwrt
           mkdir -p ./artifact/firmware
           mkdir -p ./artifact/package
           mkdir -p ./artifact/buildinfo
@@ -87,25 +89,25 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: OpenWrt_buildinfo
-          path: ./artifact/buildinfo/
+          path: ./openwrt/artifact/buildinfo/
 
       - name: Deliver package
         uses: actions/upload-artifact@v2
         with:
           name: OpenWrt_package
-          path: ./artifact/package/
+          path: ./openwrt/artifact/package/
 
       - name: Deliver firmware
         uses: actions/upload-artifact@v2
         with:
           name: OpenWrt_firmware
-          path: ./bin/targets/
+          path: ./openwrt/bin/targets/
 
       - name: Upload release asset
         if: github.event == 'release'
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.YOURTOKEN }}
-          file: ./artifact/firmware/*
+          file: ./openwrt/artifact/firmware/*
           tag: ${{ github.ref }}
           file_glob: true
