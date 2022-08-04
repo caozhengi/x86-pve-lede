@@ -51,6 +51,9 @@ jobs:
 
       - name: Generate configuration file
         run: |
+          echo "======Current Config======"
+          cat .config
+          echo "=========================="
           make defconfig
 
       - name: Make download
