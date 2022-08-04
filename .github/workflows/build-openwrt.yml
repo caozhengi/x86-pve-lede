@@ -28,6 +28,7 @@ jobs:
         run: |
           git clone https://github.com/coolsnowwolf/lede.git openwrt
           mv .config  ./openwrt/
+          cat openwrt/.config
 
       - name: Space cleanup
         env:
@@ -50,11 +51,7 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
-      - name: Generate configuration file
-        run: |
-          cat openwrt/.config
-
-      - name: Make download
+      - name: Download package
         run: |
           cd openwrt
           make defconfig
