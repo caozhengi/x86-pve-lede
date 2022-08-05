@@ -10,7 +10,7 @@
     Target Images > Build PVE/KVM image files
     Base system > blockd 	
     Base system > dnsmasq-full > build with dhcpv6 support(支持IPv6）(*)
-    Extra packages > autosamba (只支持samba3,选择samba4时去掉)
+    Extra packages > autosamba (关闭，只支持samba3，选择samba4时去掉)
     Extra packages > ipv6helper(支持IPv6）(*)
     Kernel modules > Filesystems > kmod-fs-nfs
     Kernel modules > USB Support > kmod-usb2
@@ -20,13 +20,13 @@
     LuCI > Applications > luci-app-adbyby-plus
     LuCI > Applications > luci-app-adguardhome
     LuCI > Applications > luci-app-advanced
-    LuCI > Applications > luci-app-ddnsto
     LuCI > Applications > luci-app-diskman
     LuCI > Applications > luci-app-frpc
     LuCI > Applications > luci-app-ipsec-vpnd (关闭VPN)
     LuCI > Applications > luci-app-passwall
     LuCI > Applications > luci-app-smartdns
-    LuCI > Applications > luci-app-samba 与 luci-app-samba4不共存
+    LuCI > Applications > luci-app-samba (关闭，与samba4冲突)
+    LuCI > Applications > luci-app-samba4
     LuCI > Applications > luci-app-ssr-plus
     LuCI > Applications > luci-app-turboacc
     LuCI > Applications > luci-app-unblockmusic (关闭网易云)
@@ -38,3 +38,4 @@
     Utilities > Compression > gzip  
     Utilities > Disc > fdisk
     Utilities > Editors > vim-full
+    Utilities > Filesystem > resize2fs (扩容ext4格式分区)
