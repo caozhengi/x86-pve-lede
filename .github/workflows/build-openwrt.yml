@@ -103,7 +103,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: OpenWrt_firmware
-          path: ./openwrt/bin/targets/
+          path: ./openwrt/artifact/firmware/
 
       - name: Upload release asset
         if: github.event == 'release'
