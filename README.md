@@ -18,13 +18,13 @@
     Kernel modules > USB Support > kmod-usb-net
     LuCI > Modules > Translations > Chinese (zh-cn)
     LuCI > Applications > luci-app-adbyby-plus
-    LuCI > Applications > luci-app-adguardhome
+    LuCI > Applications > luci-app-adguardhome (关闭)
     LuCI > Applications > luci-app-advanced
     LuCI > Applications > luci-app-diskman
-    LuCI > Applications > luci-app-frpc
+    LuCI > Applications > luci-app-frpc (关闭)
     LuCI > Applications > luci-app-ipsec-vpnd (关闭VPN)
-    LuCI > Applications > luci-app-passwall
-    LuCI > Applications > luci-app-smartdns
+    LuCI > Applications > luci-app-passwall (关闭)
+    LuCI > Applications > luci-app-smartdns (关闭)
     LuCI > Applications > luci-app-samba (关闭，与samba4冲突)
     LuCI > Applications > luci-app-samba4
     LuCI > Applications > luci-app-ssr-plus
