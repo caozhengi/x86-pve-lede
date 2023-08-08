@@ -7,6 +7,7 @@
     Target Profile (Generic x86/64)
     Target Images > ext4
     Target Images > Root filesystem partition size (in MB)
+    Target Images > Build LiveCD image (ISO)
     Target Images > Build PVE/KVM image files
     Base system > blockd 	
     Base system > dnsmasq-full > build with dhcpv6 support(支持IPv6）(*)
