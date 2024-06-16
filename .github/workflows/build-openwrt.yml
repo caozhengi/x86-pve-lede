@@ -50,7 +50,6 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          docker rmi `docker images -q`
           sudo -E apt-mark hold grub-efi-amd64-signed
           sudo -E apt update
           sudo -E apt -y full-upgrade
