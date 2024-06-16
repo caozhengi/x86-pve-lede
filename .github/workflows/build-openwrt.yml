@@ -46,7 +46,7 @@ jobs:
           df -hT
           echo "=============================================================================="
 
-      - name: Space cleanup and Initialization environment
+      - name: Initialization environment
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
