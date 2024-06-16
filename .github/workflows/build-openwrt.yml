@@ -21,13 +21,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Before freeing up disk space
-        run: |
-          echo "Before freeing up disk space"
-          echo "=============================================================================="
-          df -hT
-          echo "=============================================================================="
-
       - name: Freeing up disk space
         uses: easimon/maximize-build-space@master
         with: 
@@ -38,13 +31,6 @@ jobs:
           remove-haskell: 'true'
           remove-codeql: 'true'
           remove-docker-images: 'true'
-
-      - name: Free up disk space complete
-        run: |
-          echo "Free up disk space complete"
-          echo "=============================================================================="
-          df -hT
-          echo "=============================================================================="
 
       - name: Initialization environment
         env:
@@ -58,6 +44,13 @@ jobs:
           sudo -E apt -y autoremove --purge
           sudo -E apt clean
           sudo -E timedatectl set-timezone "Asia/Shanghai"
+
+      - name: Disk space usage
+        run: |
+          echo "Disk space usage"
+          echo "=============================================================================="
+          df -hT
+          echo "=============================================================================="
 
       - name: Checkout
         uses: actions/checkout@v3
