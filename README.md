@@ -12,7 +12,7 @@
 
     然后重启，删除光驱即可。
 
-    这样以后升级固件就可以直接在openwrt升级界面刷写了
+    这样以后升级固件就可以直接在openwrt升级界面刷写了，更新时使用 openwrt-x86-64-generic-squashfs-combined-efi.img.gz 镜像
 
 # 编译选项
     Target System (x86)
