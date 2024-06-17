@@ -1,6 +1,17 @@
 # x86-pve-lede
     自动构建x86机型，PVE环境下的lede镜像
 
+# PVE中升级方式
+    PVE里面没有办法直接安装openwrt,需要把img文件通过指令转换为pve虚拟机的磁盘，然后添加该磁盘才能使用，这样带来的问题是,如果有了新版本的固件，是没有办法直接升级的，升级完毕后还是原来的固件。
+
+    解决办法: 直接给PVE的磁盘写入img文件而不是通过指令转换img文件为磁盘。
+
+    使用OPENWRT的ISO文件，引导系统启动，然后将squashfs-combined.img文件传入tmp目录中，使用dd if=/tmp/op.img of=/dev/sda指令写入磁盘。
+
+    然后重启，删除光驱即可。
+
+    这样以后升级固件就可以直接在openwrt升级界面刷写了
+
 # 编译选项
     Target System (x86)
     Subtarget (x86_64)
